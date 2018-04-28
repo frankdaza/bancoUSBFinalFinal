@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+
+    <title>Dashboard BancoUSB</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">                        
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Dashboard BancoUSB</strong>
+          </a>          
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Bienvenidos!</h1>
+          <p class="lead text-muted">
+            Encuentra todo lo que necesitas en tu nuevo portal WEB del BancoUSB.
+            <br/>
+            Por favor, selecciona una de las opciones que deseas usar:
+          </p>
+          <p>
+            <button class="btn btn-primary my-2" (click)="consignar()">Consignar</button>
+            <button class="btn btn-secondary my-2" (click)="retirar()">Retirar</button>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="mt-5 mb-3 text-muted text-center">&copy; BancoUSB 2018</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

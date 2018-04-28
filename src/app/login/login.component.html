@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Floating labels example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <form class="form-signin">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="../../assets/images/login.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Inicio Sesión</h1>        
+      </div>
+
+      <label>Usuario</label>
+      <div class="form-label-group">
+        <input  class="form-control" [(ngModel)]="txtUsuario" name="txtUsuario" required autofocus>        
+      </div>
+
+      <label>Contraseña</label>
+      <div class="form-label-group">
+        <input class="form-control" [(ngModel)]="txtClave" name="txtClave" required>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" (click)="login()">Ingresar</button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>
