@@ -11,8 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  txtUsuario: String;
-  txtClave: String;
+  txtUsuario: string;
+  txtClave: string;
 
   constructor(    
     private usuarioService: UsuarioService,
@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // login(): void {    
-  //   this.router.navigate(['/dashboard']);
-  // }
 
   login(): void{
     this.usuarioService.getUsuarioPorLogin(this.txtUsuario)
