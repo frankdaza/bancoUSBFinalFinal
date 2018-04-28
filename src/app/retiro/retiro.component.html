@@ -55,6 +55,20 @@
             </div>
 
             <br/>
+
+            <label>Número Cédula</label>
+            <div class="form-label-group">
+              <input class="form-control" type="number" [(ngModel)]="txtCedula" name="txtCedula" required>
+            </div>
+
+            <br/>
+
+            <label>Clave</label>
+            <div class="form-label-group">
+              <input class="form-control" type="text" [(ngModel)]="txtClave" name="txtClave" required>
+            </div>
+
+            <br/>
       
             <button class="btn btn-lg btn-primary btn-block" (click)="retirar()">Realizar Retiro</button>          
 

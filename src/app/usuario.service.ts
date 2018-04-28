@@ -26,8 +26,8 @@ export class UsuarioService {
     return this.http.get<Respuesta>(this.urlUsuario);
   }
 
-  setRetirar(numeroCuenta: string, valor: Number) : Observable<Respuesta> {
-    this.urlUsuario = 'http://127.0.0.1:8080/banco/rest/controllers/transaccion/retiroTransaccion/' + numeroCuenta + '/' + this.loginSesion + '/' + valor;
+  setRetirar(numeroCuenta: string, valor: Number, numeroCedula: Number, clave: String) : Observable<Respuesta> {
+    this.urlUsuario = 'http://127.0.0.1:8080/banco/rest/controllers/transaccion/retiroTransaccion/' + numeroCuenta + '/' + this.loginSesion + '/' + valor + '/' + numeroCedula + '/' + clave;
     return this.http.get<Respuesta>(this.urlUsuario);
   }
 

@@ -12,6 +12,8 @@ export class RetiroComponent implements OnInit {
 
   txtNumeroCuenta: string;
   txtValor: Number;
+  txtCedula: Number;
+  txtClave: string;
   txtMensajeError: string;
 
   constructor(
@@ -23,7 +25,9 @@ export class RetiroComponent implements OnInit {
     } else {
       this.txtNumeroCuenta = "";
       this.txtValor = 0;
+      this.txtClave = "";
       this.txtMensajeError = "";
+      this.txtCedula = 0;
     }
   }
 
@@ -32,18 +36,30 @@ export class RetiroComponent implements OnInit {
 
   retirar(): void {
     if (this.txtNumeroCuenta != "") {
-      this.usuarioService.setRetirar(this.txtNumeroCuenta, this.txtValor)
-      .subscribe(response => {
-        this.txtMensajeError = response.mensajeError;
-        if (response.codigoError == 0) {          
-          console.log(this.txtMensajeError);
+      if (this.txtValor > 0) {
+        if (this.txtCedula > 0) {
+          if (this.txtClave != "") {
+            this.usuarioService.setRetirar(this.txtNumeroCuenta, this.txtValor, this.txtCedula, this.txtClave)
+              .subscribe(response => {
+                this.txtMensajeError = response.mensajeError;
+                if (response.codigoError == 0) {          
+                  console.log(this.txtMensajeError);
+                } else {
+                  console.log(this.txtMensajeError);
+                }
+              });
+          } else {
+            this.txtMensajeError = "Ingrese una clave válida";      
+          }
         } else {
-          console.log(this.txtMensajeError);
+          this.txtMensajeError = "Ingrese un número de cédula válido";    
         }
-      });
+      } else {
+        this.txtMensajeError = "Ingrese un número mayor a cero";  
+      }
     } else {
       this.txtMensajeError = "Ingrese un número de cuenta";
-    }   
+    }
   }
 
   homepage(): void {
