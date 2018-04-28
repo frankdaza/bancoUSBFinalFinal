@@ -18,9 +18,13 @@ export class ConsignarComponent implements OnInit {
     private usuarioService: UsuarioService,
     private router: Router
   ) { 
-    this.txtNumeroCuenta = "";
-    this.txtValor = 0;
-    this.txtMensajeError = "";
+    if (usuarioService.loginSesion == null) {
+      this.router.navigate(['/login']);
+    } else {
+      this.txtNumeroCuenta = "";
+      this.txtValor = 0;
+      this.txtMensajeError = "";
+    }    
   }
 
   ngOnInit() {

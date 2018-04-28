@@ -1,3 +1,78 @@
-<p>
-  retiro works!
-</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+
+    <title>Retirar BancoUSB</title>
+
+    <!-- Bootstrap core CSS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">    
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">                        
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/dashboard" class="navbar-brand d-flex align-items-center">
+            <strong>Retirar BancoUSB</strong>
+          </a>          
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          
+          <form class="form-signin">
+            <div class="text-center mb-4">
+              <img class="mb-4" src="../../assets/images/retirar.png" alt="" width="200" height="200">
+              <h1 class="h3 mb-3 font-weight-normal">Realiza tu retiro</h1>        
+            </div>
+      
+            <label>Número Cuenta</label>
+            <div class="form-label-group">
+              <input  class="form-control" type="text" [(ngModel)]="txtNumeroCuenta" name="txtNumeroCuenta" required autofocus>        
+            </div>
+
+            <br/>
+      
+            <label>Valor a retirar</label>
+            <div class="form-label-group">
+              <input class="form-control" type="number" [(ngModel)]="txtValor" name="txtValor" required>
+            </div>
+
+            <br/>
+      
+            <button class="btn btn-lg btn-primary btn-block" (click)="retirar()">Realizar Retiro</button>          
+
+            <br/><br/>
+
+            {{ txtMensajeError }}
+          </form>
+          
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="mt-5 mb-3 text-muted text-center">&copy; BancoUSB 2018</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
