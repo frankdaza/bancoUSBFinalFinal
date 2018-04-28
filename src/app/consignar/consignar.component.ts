@@ -12,6 +12,7 @@ export class ConsignarComponent implements OnInit {
 
   txtNumeroCuenta: string;
   txtValor: Number;
+  txtMensajeError: string;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -19,20 +20,30 @@ export class ConsignarComponent implements OnInit {
   ) { 
     this.txtNumeroCuenta = "";
     this.txtValor = 0;
+    this.txtMensajeError = "";
   }
 
   ngOnInit() {
   }
 
   consignar(): void {
-    this.usuarioService.setConsignar(this.txtNumeroCuenta, this.txtValor)
-    .subscribe(response => {
-      if (response.codigoError == 0) {
-        console.log("Error al realizar la transacción!");
-      } else {
-        console.log("Transacción realizada exitosamente!");
-      }
-    });
+    if (this.txtNumeroCuenta != "") {
+      this.usuarioService.setConsignar(this.txtNumeroCuenta, this.txtValor)
+      .subscribe(response => {
+        this.txtMensajeError = response.mensajeError;
+        if (response.codigoError == 0) {          
+          console.log(this.txtMensajeError);
+        } else {
+          console.log(this.txtMensajeError);
+        }
+      });
+    } else {
+      this.txtMensajeError = "Ingrese un número de cuenta";
+    }   
+  }
+
+  homepage(): void {
+    this.router.navigate(['/dashboard']);
   }
 
 }

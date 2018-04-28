@@ -1,4 +1,4 @@
 export class Respuesta {
     codigoError: Number;
-    mensajeError: String;
+    mensajeError: string;
 }
