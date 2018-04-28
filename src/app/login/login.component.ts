@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   txtUsuario: string;
   txtClave: string;
+  txtMensajeError: string;
 
   constructor(    
     private usuarioService: UsuarioService,
@@ -20,27 +21,35 @@ export class LoginComponent implements OnInit {
   ) {
     this.txtUsuario = "";
     this.txtClave = "";
+    this.txtMensajeError = "";
    }
 
   ngOnInit() {
   }
 
   login(): void{
-    this.usuarioService.getUsuarioPorLogin(this.txtUsuario)
-    .subscribe(response => {
+    if (this.txtUsuario != "") {
+      if (this.txtClave != "") {
+        this.usuarioService.getUsuarioPorLogin(this.txtUsuario)
+          .subscribe(response => {
 
-      if (response != null) {
-        if (response.clave == this.txtClave) {
-          console.log("Logueo exitoso!");
-          this.router.navigate(['/dashboard']);
-        } else {
-          console.log("Contraseña no válida!");
-        }
+            if (response != null) {
+              if (response.clave == this.txtClave) {                
+                this.router.navigate(['/dashboard']);
+              } else {
+                this.txtMensajeError = "Usuario o contraseña incorrecto!";
+              }
+            } else {
+              this.txtMensajeError = "Usuario o contraseña incorrecto!";
+            }
+            
+          });
       } else {
-        console.log("Usuario o contraseña incorrecto!");
+        this.txtMensajeError = "Ingrese una clave";  
       }
-      
-    });
+    } else {
+      this.txtMensajeError = "Ingrese un usuario";
+    }
   }
 
 }
