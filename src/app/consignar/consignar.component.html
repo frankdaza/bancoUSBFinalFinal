@@ -51,7 +51,14 @@
       
             <label>Valor a consignar</label>
             <div class="form-label-group">
-              <input class="form-control" type="number" [(ngModel)]="txtValor" name="txtValor" required>
+              <input class="form-control" type="number" min="1" [(ngModel)]="txtValor" name="txtValor" required>
+            </div>
+
+            <br/>
+
+            <label>Número Cédula</label>
+            <div class="form-label-group">
+              <input class="form-control" type="number" min="1000" max="2000000000" [(ngModel)]="txtCedula" name="txtCedula" required>
             </div>
 
             <br/>
